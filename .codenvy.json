@@ -1,0 +1,93 @@
+{
+  "v": "4.0",
+  "policies" : {
+  "create" : "perUser"
+  },
+  "workspace": {
+    "defaultEnv": "java",
+    "environments": [
+      {
+        "name": "java",
+        "machineConfigs": [
+          {
+            "limits": {
+              "ram": 1500
+            },
+            "name": "ws-machine",
+            "type": "docker",
+            "source": {
+              "location": "http://beta.codenvy.com/api/recipe/recipega4hxep75ipg04yo/script",
+              "type": "recipe"
+            },
+            "dev": true
+          }
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "links": [],
+        "name": "algorithms",
+        "attributes": {
+          "maven.artifactId": [
+            "algorithms"
+          ],
+          "maven.packaging": [
+            "jar"
+          ],
+          "vcs.provider.name": [
+            "git"
+          ],
+          "maven.version": [
+            "1.0.0-SNAPSHOT"
+          ],
+          "git.current.branch.name": [
+            "master"
+          ],
+          "language": [
+            "java"
+          ],
+          "git.repository.remotes": [
+            "https://github.com/arghyo/algorithms.git"
+          ],
+          "maven.groupId": [
+            "com.arghyo"
+          ]
+        },
+        "type": "maven",
+        "source": {
+          "location": "https://github.com/arghyo/algorithms.git",
+          "type": "git",
+          "parameters": {}
+        },
+        "modules": [],
+        "path": "/algorithms",
+        "problems": [],
+        "mixins": [
+          "git"
+        ]
+      }
+    ],
+    "name": "java",
+    "attributes": {},
+    "commands": [
+      {
+        "commandLine": "mvn -f ${current.project.path} clean install",
+        "name": "algorithms: build",
+        "attributes": {
+          "previewUrl": ""
+        },
+        "type": "mvn"
+      },
+      {
+        "commandLine": "mvn -f ${current.project.path} clean install && java -jar ${current.project.path}/target/*.jar",
+        "name": "algorithms: run",
+        "attributes": {
+          "previewUrl": ""
+        },
+        "type": "mvn"
+      }
+    ],
+    "links": []
+  }
+}
